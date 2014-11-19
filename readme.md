@@ -1,7 +1,6 @@
-# 2 (Markov) Chains
-### Procedurally generating lyrics
+![2 (Markov) Chains](https://raw.github.com/SegFaultx64/2MarkovChains/master/mrChainz.jpg)
 
-![logo](https://raw.github.com/SegFaultx64/2MarkovChains/master/mrChainz.jpg)
+### Procedurally generating lyrics
 
 This is a project that uses marky_markov and rapgenius to procedurally generate lyrics. It is about ~60 lines of Ruby, and is a good way to illustrate the possibilities of Markov chains.
 
