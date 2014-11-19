@@ -4,13 +4,13 @@ require 'marky_markov'
 def markov(n)
 	names = n.split('+')
 	if names.length > 1 then
-		markov = MarkyMarkov::Dictionary.new('./dictionaries/'+n.gsub(/\s/, ''), 3) # Saves/opens dictionary.mmd
+		markov = MarkyMarkov::Dictionary.new('./dictionaries/'+n.gsub(/\s/, ''), 2) # Saves/opens dictionary.mmd
 		c = names.reduce(''){ |corpus, name| corpus + File.read('./dictionaries/'+ name.gsub(/\s/, '') + '.dict') }
 		markov.parse_string c
 		markov.save_dictionary! # Saves the modified dictionary/creates one if it didn't exist.
 		return markov.generate_n_sentences 3
 	else
-		markov = MarkyMarkov::Dictionary.new('./dictionaries/'+n.gsub(/\s/, ''), 3) # Saves/opens dictionary.mmd
+		markov = MarkyMarkov::Dictionary.new('./dictionaries/'+n.gsub(/\s/, ''), 2) # Saves/opens dictionary.mmd
 		markov.save_dictionary! # Saves the modified dictionary/creates one if it didn't exist.
 		return markov.generate_n_sentences 1
 	end
@@ -36,4 +36,14 @@ def rapGeniusToCorpus(artistName)
 	markov.parse_string corpus
 	markov.save_dictionary! # Saves the modified dictionary/creates one if it didn't exist.
 
+end
+
+def textFileToCorpus(file, name)
+	puts file
+	corpus = File.read(file)
+
+	File.write('./dictionaries/' + name.gsub(/\s/, '') + '.dict', corpus)
+	markov = MarkyMarkov::Dictionary.new('./dictionaries/' + name.gsub(/\s/, '') { |match|  }, 2) # Saves/opens dictionary.mmd
+	markov.parse_string corpus
+	markov.save_dictionary! 
 end
