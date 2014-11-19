@@ -1,6 +1,8 @@
 # 2 (Markov) Chains
 ### Procedurally generating lyrics
 
+![logo](https://raw.github.com/SegFaultx64/2MarkovChains/master/mrChainz.jpg)
+
 This is a project that uses marky_markov and rapgenius to procedurally generate lyrics. It is about ~60 lines of Ruby, and is a good way to illustrate the possibilities of Markov chains.
 
 To find out more about this project checkout my slides [here](http://empirewindrush.com/slides/2markovchains), or my blog post on the matter which will be going up soon. If you have any thoughts, questions, or concerns feel free to tweet at me @ReluctantHipstr.
@@ -47,6 +49,8 @@ ruby ./cli.rb "2 Chainz+Taylor Swift"
 
 ## Using the server
 
+This allows you to request song lyrics via a web interface. It uses sintra to expose part of the api to the web. This is good for pulling in ouput live to an HTML5 presentation, or using with something like chat bot.
+
 ```bash
 ruby ./server.rb
 ```
@@ -61,7 +65,6 @@ Download a text file and put it in the same folder as the application. Then run.
 
 ```bash
 ruby ./cli.rb load ./janeAusten.txt "Jane Austen"
-
 
 ruby ./cli.rb "2 Chainz + Jane Austen"
 ```
